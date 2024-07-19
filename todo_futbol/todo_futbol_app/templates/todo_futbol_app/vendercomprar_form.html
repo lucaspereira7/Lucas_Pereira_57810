@@ -1,0 +1,38 @@
+{% extends 'todo_futbol_app/index.html' %}
+
+
+{% block titulo %}
+<h1 class="display-5 fw-bolder text-white mb-2">VENDER/COMPRAR</h1>
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+<table>
+    <tr>  
+        <td width="200"><h2>Volver</h2></td>
+        <td>
+            <a
+            href="{% url 'vendercomprar' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="bi bi-arrow-90deg-left" title="volver"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Vender">
+</form> 
+
+{% endblock contenido %}
+
+
+{% block reservas %}
+    
+{% endblock reservas %}
+    

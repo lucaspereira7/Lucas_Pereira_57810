@@ -1,0 +1,78 @@
+{% extends 'todo_futbol_app/index.html' %}
+
+ 
+{% block titulo %}
+<h1 class="display-5 fw-bolder text-white mb-2">BUSCAR RIVAL</h1>
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+<table>
+    <tr>  
+        <td width="200"><h2>Reservar</h2></td>
+        <td>
+            <a
+            href="{% url 'buscarRCreate' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="Reservar"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+<table>
+    <tr>  
+        <td width="200"><h2>Buscar rivales</h2></td>
+        <td>
+            <a
+            href="{% url 'buscarBR' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="bi bi-search" title="Buscar"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre cancha</th>
+            <th>Hora</th>
+            <th>Dia</th>
+            <th>Tu equipo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for c in buscarR %}
+        <tr>
+            <td>{{c.id}}</td>
+            <td>{{c.nombre_cancha}}</td>
+            <td>{{c.hora_reserva}}</td>
+            <td>{{c.dia_reserva}}</td>
+            <td>{{c.tu_equipo}}</td>
+            <td>
+                <a
+                  href="{% url 'buscarRUpdate' c.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                </a>
+                <a
+                  href="{% url 'buscarRDelete' c.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                </a>                
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}
+
+
+{% block reservas %}
+    
+{% endblock reservas %}
+    

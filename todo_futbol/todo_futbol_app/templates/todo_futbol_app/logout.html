@@ -1,0 +1,20 @@
+
+{% extends "todo_futbol_app/index.html" %}
+
+{% block titulo %}
+<h1 class="display-5 fw-bolder text-white mb-2">cerrar sesion</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+{% csrf_token %}
+<h4>
+<p style="color:red" align="center">Se ha cerrado su sesion exitosamente</p>
+</h4>
+{% endblock contenido %}
+
+
+
+{% block reservas %}
+    
+{% endblock reservas %}
+    

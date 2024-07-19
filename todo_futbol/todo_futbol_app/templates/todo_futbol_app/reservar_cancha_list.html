@@ -1,0 +1,77 @@
+{% extends 'todo_futbol_app/index.html' %}
+
+
+{% block titulo %}
+<h1 class="display-5 fw-bolder text-white mb-2">RESERVAR CANCHA</h1>
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+<table>
+    <tr>  
+        <td width="200"><h2>Reservar</h2></td>
+        <td>
+            <a
+            href="{% url 'reservaCCreate' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="Reservar"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+<table>
+    <tr>  
+        <td width="200"><h2>Buscar cancha</h2></td>
+        <td>
+            <a
+            href="{% url 'buscarRC' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="bi bi-search" title="Reservar"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre cancha</th>
+        <th>Hora de reserva</th>
+        <th>Dia</th>
+        <th>Acciones</th>
+    </tr>
+</thead>
+<tbody>
+{% for c in reservaC %}
+    <tr>
+        <td>{{c.id}}</td>
+        <td>{{c.nombre_cancha}}</td>
+        <td>{{c.hora_reserva}}</td>
+        <td>{{c.dia_reserva}}</td>
+        <td>
+            <a
+              href="{% url 'reservaCUpdate' c.id %}"
+              class="btn btn-primary"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+            </a>
+            <a
+              href="{% url 'reservaCDelete' c.id %}"
+              class="btn btn-danger"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+            </a>                
+        </td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock contenido %}
+
+
+{% block reservas %}
+    
+{% endblock reservas %}
+    

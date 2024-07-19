@@ -1,0 +1,38 @@
+{% extends 'todo_futbol_app/index.html' %}
+
+
+{% block titulo %}
+<h1 class="display-5 fw-bolder text-white mb-2">buscar reserva de cancha existente</h1>
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+<table>
+    <tr>  
+        <td width="200"><h2>Volver</h2></td>
+        <td>
+            <a
+            href="{% url 'reservaC' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="bi bi-arrow-90deg-left" title="volver"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+
+<form action="{% url 'encontrarRC' %}" method="get">
+    {% csrf_token %}
+    <table>
+        <p>Ingrese nombre de la cancha:<input type="text" name="buscar" id="buscar"></p>
+    </table>
+    <input type="submit" value="Buscar">
+</form> 
+
+{% endblock contenido %}
+
+
+{% block reservas %}
+    
+{% endblock reservas %}
+    

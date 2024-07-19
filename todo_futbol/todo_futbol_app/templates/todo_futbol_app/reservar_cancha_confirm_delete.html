@@ -1,0 +1,40 @@
+{% extends 'todo_futbol_app/index.html' %}
+
+
+{% block titulo %}
+<h1 class="display-5 fw-bolder text-white mb-2">ELIMINAR RESERVAR DE CANCHA</h1>
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+<table>
+    <tr>  
+        <td width="200"><h2>Volver</h2></td>
+        <td>
+            <a
+            href="{% url 'reservaC' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="bi bi-arrow-90deg-left" title="volver"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="text-center">
+        <h3>¿desea cancelar su reserva? <p style="color:red">{{ object }}</p> </h3>
+    </div>
+    <div class="text-center">
+        <input type="submit" class="btn btn-primary btn-block" value="Confirmar">
+    </div>
+</form> 
+
+{% endblock contenido %}
+
+
+{% block reservas %}
+    
+{% endblock reservas %}
+    

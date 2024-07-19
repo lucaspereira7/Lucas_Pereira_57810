@@ -1,0 +1,37 @@
+{% extends 'todo_futbol_app/index.html' %}
+
+
+{% block titulo %}
+<h1 class="display-5 fw-bolder text-white mb-2">buscar objeto en venta</h1>
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+<table>
+    <tr>  
+        <td width="200"><h2>Volver</h2></td>
+        <td>
+            <a
+            href="{% url 'vendercomprar' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="bi bi-arrow-90deg-left" title="volver"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+
+<form action="{% url 'encontrarVC' %}" method="get">
+    {% csrf_token %}
+    <table>
+        <p>Ingrese nombre del objeto:<input type="text" name="buscar" id="buscar"></p>
+    </table>
+    <input type="submit" value="Buscar">
+</form> 
+
+{% endblock contenido %}
+
+
+{% block reservas %}
+    
+{% endblock reservas %}

@@ -1,0 +1,94 @@
+{% extends 'todo_futbol_app/index.html' %}
+
+
+{% block titulo %}
+<h1 class="display-5 fw-bolder text-white mb-2">VENDER/COMPRAR</h1>
+<p class="lead text-white-50 mb-4">vende aca el articulo deportivo que ya no utilices, o encontra el que te haga falta!</p>
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+<table>
+    <tr>  
+        <td width="200"><h2>Volver</h2></td>
+        <td>
+            <a
+            href="{% url 'vendercomprar' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="bi bi-arrow-90deg-left" title="volver"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+<table>
+    <tr>  
+        <td width="200"><h2>Vender</h2></td>
+        <td>
+            <a
+            href="{% url 'vendercomprarCreate' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="vender"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+<table>
+    <tr>  
+        <td width="200"><h2>Buscar ventas</h2></td>
+        <td>
+            <a
+            href="{% url 'buscarVC' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="bi bi-search" title="Buscar"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre articulo</th>
+        <th>Estado articulo</th>
+        <th>Talle</th>
+        <th>Precio USD</th>
+        <th>Numero celular</th>
+        <th>Acciones</th>
+    </tr>
+</thead>
+<tbody>
+{% for c in vendercomprar %}
+    <tr>
+        <td>{{c.id}}</td>
+        <td>{{c.nombre_articulo}}</td>
+        <td>{{c.estado_articulo}}</td>
+        <td>{{c.talle}}</td>
+        <td>{{c.precio}}</td>
+        <td>{{c.numero_celular}}</td>
+        <td>
+            <a
+              href="{% url 'vendercomprarUpdate' c.id %}"
+              class="btn btn-primary"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+            </a>
+            <a
+              href="{% url 'vendercomprarDelete' c.id %}"
+              class="btn btn-danger"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+            </a>                
+        </td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock contenido %}
+
+
+{% block reservas %}
+    
+{% endblock reservas %}
+    

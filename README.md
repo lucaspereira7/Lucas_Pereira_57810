@@ -16,3 +16,7 @@ https://1drv.ms/x/c/8cd98175b0b2eb41/ETG4Hr7D_s1JpEVrFML-y9kBV7gTA6KUXfkobmBZZBw
 
 # Video explicativo 🚀
 https://youtu.be/aWkONJ1-kVc
+
+# Usuario 
+username : juanperez
+password : 1234pepe
